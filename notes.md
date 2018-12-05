@@ -21,3 +21,11 @@ ng build -prod --base-href /path/
 ngForm 
 [(ngModel)]=""
 (ngSubmit)=""
+
+# ngx-bootstrap / angular.io/resources
+step1: npm install ngx-bootstrap --save
+step2: npm install bootstrap@3/bootstrap --save
+step3: add bootstrap stylesheet to the project
+
+step4: import module
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
