@@ -36,7 +36,6 @@ export class CreateEmployeeComponent implements OnInit {
 
   constructor() {
 
-
     // useful for copying properties
     // ngx-bootstrap config properties
     this.bsConfig = Object.assign({}, 

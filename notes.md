@@ -40,3 +40,6 @@ ngNativeValidate
 
 # Local/Template variable
 starts with a #varName
+
+# Class binding
+[class.class-name]="condition"

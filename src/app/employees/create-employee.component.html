@@ -5,57 +5,15 @@
     </div>
 
     <div class="panel-body">
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control" placeholder="Name"
-          #fullNameControl="ngModel">
+      <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched" [class.has-success]="fullNameControl.valid">
+        <label for="fullName" class="control-label">Full Name</label>
+        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control" placeholder="Name" required #fullNameControl="ngModel">
+        <span class="help-block" *ngIf="fullNameControl.invalid && fullNameControl.touched">Full name is required</span>
       </div>
-      <!-- full name reference -->
-      <table class="table">
-        <tr>
-          <td>Full Name field</td>
-        </tr>
-        <tr>
-          <td>
-            <div>touched: {{ fullNameControl.touched }}</div>
-            <div>untouched: {{ fullNameControl.untouched }}</div>
-          </td>
-          <td>
-            <div>pristine: {{ fullNameControl.pristine }}</div>
-            <div>dirty: {{ fullNameControl.dirty }}</div>
-          </td>
-          <td>
-            <div>valid: {{ fullNameControl.valid }}</div>
-            <div>invalid: {{ fullNameControl.invalid }}</div>
-          </td>
-        </tr>
-      </table>
-
-      <!-- form level access -->
-      <table class="table">
-          <tr>
-            <td>Form Level: Full Name field</td>
-          </tr>
-          <tr>
-            <td>
-              <div>touched: {{ employeeForm.touched }}</div>
-              <div>untouched: {{ employeeForm.untouched }}</div>
-            </td>
-            <td>
-              <div>pristine: {{ employeeForm.pristine }}</div>
-              <div>dirty: {{ employeeForm.dirty }}</div>
-            </td>
-            <td>
-              <div>valid: {{ employeeForm.valid }}</div>
-              <div>invalid: {{ employeeForm.invalid }}</div>
-            </td>
-          </tr>
-        </table>
-
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" id="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Email Address">
+        <input type="text" id="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Email Address" required>
       </div>
 
       <div class="form-group">
@@ -141,7 +99,7 @@
     <!-- end panel-body -->
 
     <div class="panel-footer">
-      <button type="submit" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save</button>
     </div>
   </div>
 </form>
