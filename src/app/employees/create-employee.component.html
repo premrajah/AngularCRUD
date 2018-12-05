@@ -7,8 +7,51 @@
     <div class="panel-body">
       <div class="form-group">
         <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control" placeholder="Name">
+        <input type="text" id="fullName" [(ngModel)]="fullName" name="fullName" class="form-control" placeholder="Name"
+          #fullNameControl="ngModel">
       </div>
+      <!-- full name reference -->
+      <table class="table">
+        <tr>
+          <td>Full Name field</td>
+        </tr>
+        <tr>
+          <td>
+            <div>touched: {{ fullNameControl.touched }}</div>
+            <div>untouched: {{ fullNameControl.untouched }}</div>
+          </td>
+          <td>
+            <div>pristine: {{ fullNameControl.pristine }}</div>
+            <div>dirty: {{ fullNameControl.dirty }}</div>
+          </td>
+          <td>
+            <div>valid: {{ fullNameControl.valid }}</div>
+            <div>invalid: {{ fullNameControl.invalid }}</div>
+          </td>
+        </tr>
+      </table>
+
+      <!-- form level access -->
+      <table class="table">
+          <tr>
+            <td>Form Level: Full Name field</td>
+          </tr>
+          <tr>
+            <td>
+              <div>touched: {{ employeeForm.touched }}</div>
+              <div>untouched: {{ employeeForm.untouched }}</div>
+            </td>
+            <td>
+              <div>pristine: {{ employeeForm.pristine }}</div>
+              <div>dirty: {{ employeeForm.dirty }}</div>
+            </td>
+            <td>
+              <div>valid: {{ employeeForm.valid }}</div>
+              <div>invalid: {{ employeeForm.invalid }}</div>
+            </td>
+          </tr>
+        </table>
+
 
       <div class="form-group">
         <label for="email">Email</label>
@@ -85,7 +128,8 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary" type="button" (click)="togglePhotoPreview()">{{previewPhoto? "Hide" : "Show"}} Preview</button>
+        <button class="btn btn-primary" type="button" (click)="togglePhotoPreview()">{{previewPhoto? "Hide" : "Show"}}
+          Preview</button>
       </div>
 
       <div class="form-group">

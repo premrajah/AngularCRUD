@@ -30,3 +30,13 @@ step3: add bootstrap stylesheet to the project
 step4: import module
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
+# Native validation
+ngNativeValidate
+
+# Angular form validation 
+- touched/untouched 
+- pristine/dirty
+- valid/invalid 
+
+# Local/Template variable
+starts with a #varName
