@@ -29,3 +29,4 @@ step3: add bootstrap stylesheet to the project
 
 step4: import module
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+

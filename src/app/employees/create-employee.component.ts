@@ -20,6 +20,8 @@ export class CreateEmployeeComponent implements OnInit {
   bsConfig: Partial<BsDatepickerConfig>;
   colorTheme = 'theme-dark-blue';
   dateType = 'DD-MM-YYYY';
+
+  previewPhoto = false;
   
   // default date
   dateOfBirth: Date = new Date(1981, 4, 31);
@@ -55,6 +57,11 @@ export class CreateEmployeeComponent implements OnInit {
   // Saves employees from the form 
   saveEmployee(empForm: NgForm): void {
     console.log(empForm.value);
+  }
+
+  // method for photo preview from photo path
+  togglePhotoPreview() {
+    this.previewPhoto = !this.previewPhoto
   }
 
 }

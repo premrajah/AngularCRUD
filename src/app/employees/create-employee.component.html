@@ -79,6 +79,19 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="photoPath">Photo path</label>
+        <input type="text" id="photoPath" [(ngModel)]="photoPath" name="photoPath" class="form-control" placeholder="Path to photo">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" type="button" (click)="togglePhotoPreview()">{{previewPhoto? "Hide" : "Show"}} Preview</button>
+      </div>
+
+      <div class="form-group">
+        <img [src]="photoPath" style="max-width: 200px" *ngIf="previewPhoto">
+      </div>
+
 
     </div>
     <!-- end panel-body -->
