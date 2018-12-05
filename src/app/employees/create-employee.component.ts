@@ -8,6 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class CreateEmployeeComponent implements OnInit {
 
+  // gender = 'male'; // lets the radio button be checked/unchecked
+  // isActive = true; // lets the checkbox button be checked/unchecked
+
   constructor() { }
 
   ngOnInit() {
