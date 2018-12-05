@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Department } from '../models/department.model';
+import { Employee } from '../models/employee.model';
 
 // ngx-bootstrap
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -25,6 +26,19 @@ export class CreateEmployeeComponent implements OnInit {
   
   // default date
   dateOfBirth: Date = new Date(1981, 4, 31);
+
+  employee: Employee = {
+    id: null,
+    name: null,
+    email: null,
+    phoneNumber: null,
+    contactPreference: null,
+    gender: null,
+    dateOfBirth: null,
+    department: null,
+    isActive: null,
+    photoPath: null
+  }
 
   departments: Department[] = [
     { id: 1, name: 'Help Desk' },
@@ -54,8 +68,8 @@ export class CreateEmployeeComponent implements OnInit {
 
 
   // Saves employees from the form 
-  saveEmployee(empForm: NgForm): void {
-    console.log(empForm.value);
+  saveEmployee(newEmployee: Employee): void {
+    console.log(newEmployee);
   }
 
   // method for photo preview from photo path
