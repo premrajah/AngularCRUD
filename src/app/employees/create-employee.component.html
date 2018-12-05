@@ -52,9 +52,21 @@
         <div class="form-control">
           <label class="checkbox-inline">
             <input type="checkbox" name="isActive" [(ngModel)]="isActive">
-            IS Active
+            Is Active
           </label>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label for="department">
+          Department
+        </label>
+        <select id="department" class="form-control" name="department" [(ngModel)]="department">
+          <option value="1">Help Desk</option>
+          <option value="2">HR</option>
+          <option value="3">IT</option>
+          <option value="4">Payroll</option>
+        </select>
       </div>
 
 
