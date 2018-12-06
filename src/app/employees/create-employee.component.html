@@ -14,18 +14,19 @@
       </div>
 
       <!-- email -->
-      <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+      <div class="form-group" [class.has-error]="email.invalid" >
         <label for="email" class="control-label">Email</label>
         <input type="text" id="email" [(ngModel)]="employee.email" name="email" #email="ngModel" class="form-control"
-          placeholder="Email Address" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
-        <span class="help-block" *ngIf="email.errors?.required && email.touched">Email is required</span>
-        <span class="help-block" *ngIf="email.errors?.pattern && email.touched">Email is invalid</span>
+          placeholder="Email Address" [required]="contactPreference.value == 'email'" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+        <span class="help-block" *ngIf="email.errors?.required">Email is required</span>
+        <span class="help-block" *ngIf="email.errors?.pattern">Email is invalid</span>
       </div>
 
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input type="text" id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber" class="form-control"
-          placeholder="Phone number">
+      <!-- phone -->
+      <div class="form-group" [class.has-error]="phone.invalid" >
+        <label for="phoneNumber" class="control-label">Phone Number</label>
+        <input type="text" id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone number" [required]="contactPreference.value == 'phone'" #phone="ngModel">
+        <span class="help-block" *ngIf="phone.invalid">Phone is required</span>
       </div>
 
       <!-- contact preference -->
@@ -42,6 +43,7 @@
           </label>
         </div>
         <span class="help-block" *ngIf="contactPreference.touched && contactPreference.invalid">Contact preference is required</span>
+        <!-- Contact Preference Selected Value: {{ contactPreference.value }} -->
       </div>
 
       <!-- gender -->
