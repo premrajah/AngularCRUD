@@ -82,14 +82,14 @@
         <label for="department" class="control-label">
           Department
         </label>
-        <select id="department" class="form-control" name="department" [(ngModel)]="employee.department" required #department="ngModel">
-          <option [ngValue]="null">Select a Department</option>
+        <select id="department" appSelectValidator="select" class="form-control" name="department" [(ngModel)]="employee.department" #department="ngModel">
+          <option value="select">Select a Department</option>
           <!-- structural directive -->
           <option *ngFor="let dept of departments" [value]="dept.id">
             {{dept.name}}
           </option>
         </select>
-        <span class="help-block" *ngIf="department.touched && department.invalid">Department is required</span>
+        <span class="help-block" *ngIf="department.touched && department.errors?.defaultSelected">Department is required</span>
       </div>
 
       <!-- uses ngx-bootstrap -->

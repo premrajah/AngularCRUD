@@ -35,7 +35,7 @@ export class CreateEmployeeComponent implements OnInit {
     contactPreference: null,
     gender: null,
     dateOfBirth: null,
-    department: null,
+    department: 'select',
     isActive: null,
     photoPath: null
   }
