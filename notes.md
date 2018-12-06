@@ -38,8 +38,14 @@ ngNativeValidate
 - pristine/dirty
 - valid/invalid 
 
+# to get access to the form properties 
+variable="ngModel" 
+
 # Local/Template variable
 starts with a #varName
 
 # Class binding
 [class.class-name]="condition"
+
+# Angular safe navigators operator 
+e.g. *nfIf="email.errors?.required"

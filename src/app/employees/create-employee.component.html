@@ -4,16 +4,22 @@
       <h3 class="panel-title">Create Employee</h3>
     </div>
 
+    <!-- full name -->
     <div class="panel-body">
       <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
         <label for="name" class="control-label">Full Name</label>
-        <input type="text" id="name" [(ngModel)]="employee.name" name="name" class="form-control" placeholder="Name" required #name="ngModel">
+        <input type="text" id="name" [(ngModel)]="employee.name" name="name" class="form-control" placeholder="Name"
+          required #name="ngModel">
         <span class="help-block" *ngIf="name.invalid && name.touched">Full name is required</span>
       </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" [(ngModel)]="employee.email" name="email" class="form-control" placeholder="Email Address" required>
+      <!-- email -->
+      <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+        <label for="email" class="control-label">Email</label>
+        <input type="text" id="email" [(ngModel)]="employee.email" name="email" #email="ngModel" class="form-control"
+          placeholder="Email Address" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+        <span class="help-block" *ngIf="email.errors?.required && email.touched">Email is required</span>
+        <span class="help-block" *ngIf="email.errors?.pattern && email.touched">Email is invalid</span>
       </div>
 
       <div class="form-group">
@@ -22,6 +28,7 @@
           placeholder="Phone number">
       </div>
 
+      <!-- contact preference -->
       <div class="form-group">
         <label>Contact Preference</label>
         <div class="form-control">
@@ -36,6 +43,7 @@
         </div>
       </div>
 
+      <!-- gender -->
       <div class="form-group">
         <label>Gender</label>
         <div class="form-control">
@@ -50,6 +58,7 @@
         </div>
       </div>
 
+      <!-- is active -->
       <div class="form-group">
         <div class="form-control">
           <label class="checkbox-inline">
@@ -59,6 +68,7 @@
         </div>
       </div>
 
+      <!-- department -->
       <div class="form-group">
         <label for="department">
           Department
@@ -72,6 +82,7 @@
       </div>
 
       <!-- uses ngx-bootstrap -->
+      <!-- date of birth -->
       <div class="row">
         <div class="form-group col-md-3">
           <label for="dateOfBirth">Date of Birth</label>
@@ -80,9 +91,11 @@
         </div>
       </div>
 
+      <!-- photo -->
       <div class="form-group">
         <label for="photoPath">Photo path</label>
-        <input type="text" id="photoPath" [(ngModel)]="employee.photoPath" name="photoPath" class="form-control" placeholder="Path to photo">
+        <input type="text" id="photoPath" [(ngModel)]="employee.photoPath" name="photoPath" class="form-control"
+          placeholder="Path to photo">
       </div>
 
       <div class="form-group">
