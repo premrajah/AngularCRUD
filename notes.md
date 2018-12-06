@@ -49,3 +49,6 @@ starts with a #varName
 
 # Angular safe navigators operator 
 e.g. *nfIf="email.errors?.required"
+
+# value and ngValue directive 
+id the value is null or object use ngValue 
