@@ -82,14 +82,16 @@
         <label for="department" class="control-label">
           Department
         </label>
-        <select id="department" appSelectValidator="select" class="form-control" name="department" [(ngModel)]="employee.department" #department="ngModel">
+        <select id="department" appSelectValidator="select" class="form-control" name="department" [(ngModel)]="employee.department"
+          #department="ngModel">
           <option value="select">Select a Department</option>
           <!-- structural directive -->
           <option *ngFor="let dept of departments" [value]="dept.id">
             {{dept.name}}
           </option>
         </select>
-        <span class="help-block" *ngIf="department.touched && department.errors?.defaultSelected">Department is required</span>
+        <span class="help-block" *ngIf="department.touched && department.errors?.defaultSelected">Department is
+          required</span>
       </div>
 
       <!-- uses ngx-bootstrap -->
@@ -110,14 +112,40 @@
       </div>
 
       <div class="form-group">
-        <button class="btn btn-primary" type="button" (click)="togglePhotoPreview()">{{ previewPhoto ? "Hide" : "Show"
-          }}
-          Preview</button>
+        <button class="btn btn-primary" type="button" (click)="togglePhotoPreview()">{{
+          previewPhoto ? "Hide" : "Show"
+          }} Preview</button>
       </div>
 
       <div class="form-group">
         <img [src]="employee.photoPath" style="max-width: 200px" *ngIf="previewPhoto">
       </div>
+
+      <!-- password -->
+      <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup">
+        <div class="form-group" [class.has-error]="password.touched && password.invalid">
+          <label for="password" class="control-label">Password</label>
+          <input type="password" id="password" name="password" [(ngModel)]="employee.password" #password="ngModel"
+            required class="form-control">
+          <span class="help-block" *ngIf="password.touched && password.invalid">Password is required</span>
+        </div>
+
+        <!-- confirm password -->
+        <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+          <label for="confirmPassword" class="control-label">Confirm Password</label>
+          <input type="password" appConfirmEqualValidator="password" id="confirmPassword" name="confirmPassword"
+            [(ngModel)]="employee.confirmPassword" #confirmPassword="ngModel" required class="form-control">
+
+          <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">Confirm Password
+            is
+            required</span>
+
+          <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">Password
+            and
+            Confirm Password do not match</span>
+        </div>
+      </div>
+      <!-- end password group -->
 
 
     </div>

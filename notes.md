@@ -52,3 +52,7 @@ e.g. *nfIf="email.errors?.required"
 
 # value and ngValue directive 
 id the value is null or object use ngValue 
+
+#ngModelGroup directive
+
+conditional class / group binding
