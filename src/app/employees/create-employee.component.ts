@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+
+
 import { Department } from '../models/department.model';
 import { Employee } from '../models/employee.model';
+import { EmployeeService } from './employee.service';
+
 
 // ngx-bootstrap
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
@@ -23,7 +27,7 @@ export class CreateEmployeeComponent implements OnInit {
   dateType = 'DD-MM-YYYY';
 
   previewPhoto = false;
-  
+
   // default date
   dateOfBirth: Date = new Date(1981, 4, 31);
 
@@ -50,18 +54,19 @@ export class CreateEmployeeComponent implements OnInit {
     { id: 5, name: 'Admin ' }
   ];
 
-  constructor() {
+  constructor(private _employeeService: EmployeeService, 
+    private _router: Router) {
 
     // useful for copying properties
     // ngx-bootstrap config properties
-    this.bsConfig = Object.assign({}, 
-      { 
-        containerClass: this.colorTheme, 
+    this.bsConfig = Object.assign({},
+      {
+        containerClass: this.colorTheme,
         showWeekNumbers: false,
-        minDate: new Date(1914, 0 , 1),
+        minDate: new Date(1914, 0, 1),
         maxDate: new Date(),
         dateInputFormat: this.dateType
-        
+
       });
   }
 
@@ -69,12 +74,13 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
 
-  // Saves employees from the form 
-  saveEmployee(newEmployee: Employee): void {
-    console.log(newEmployee);
+  /// Saves employees from the form to the service and navigate to list view
+  saveEmployee(): void {
+    this._employeeService.save(this.employee);
+    this._router.navigate(['list']);
   }
 
-  // method for photo preview from photo path
+  /// method for photo preview from photo path
   togglePhotoPreview() {
     this.previewPhoto = !this.previewPhoto
   }

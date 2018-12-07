@@ -13,8 +13,9 @@ export class EmployeeService {
       gender: 'Male',
       contactPreference: 'Email',
       email: 'cat@cat.com',
+      phoneNumber: 124546856,
       dateOfBirth: new Date('10/25/1988'),
-      department: 'IT',
+      department: '3',
       isActive: true,
       photoPath: 'assets/images/cat.jpg',
       password: 'abc',
@@ -28,7 +29,7 @@ export class EmployeeService {
       email: 'dog@dog.com',
       phoneNumber: 1236782364,
       dateOfBirth: new Date('05/13/1968'),
-      department: 'HR',
+      department: '2',
       isActive: true,
       photoPath: 'assets/images/dog.jpg',
       password: 'xyz',
@@ -38,10 +39,11 @@ export class EmployeeService {
       id: 3,
       name: 'Bird',
       gender: 'N/A',
+      email: 'bird@bird.com',
       contactPreference: 'Phone',
       phoneNumber: 4546457895,
       dateOfBirth: new Date('05/13/1968'),
-      department: 'Finance',
+      department: '4',
       isActive: true,
       photoPath: 'assets/images/bird.jpg',
       password: 'wsd',
@@ -49,7 +51,13 @@ export class EmployeeService {
     }
   ];
 
+  /// get all employees
   getEmployees(): Employee[] {
     return this.listEmployees;
+  }
+
+  /// save new employee to listEmployees array
+  save(employee: Employee) {
+    this.listEmployees.push(employee);
   }
 }
