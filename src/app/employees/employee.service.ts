@@ -38,7 +38,7 @@ export class EmployeeService {
     {
       id: 3,
       name: 'Bird',
-      gender: 'N/A',
+      gender: 'Male',
       email: 'bird@bird.com',
       contactPreference: 'Phone',
       phoneNumber: 4546457895,

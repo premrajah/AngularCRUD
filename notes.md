@@ -67,3 +67,8 @@ e.g:  (change)="confirmPassword.control.updateValueAndValidity()" triggered afte
 the service always need to have the @Injectable() decorator above the class
 import from 
 #import { Injectable } from "@angular/core";
+
+# Angular switch case
+ngSwitch
+ngSwitchCase
+ngSwitchDefault
