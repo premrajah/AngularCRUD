@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 import { Employee } from '../models/employee.model';
@@ -12,12 +12,22 @@ export class DisplayEmployeeComponent implements OnInit {
 
   // backing field for Input property
   private _employee: Employee;
+  private _employeeId: number;
+
+  
+
+  @Input() 
+  set employeeId(val : number) {
+    this._employeeId = val;
+  }
+  get employeeId() {
+    return this._employeeId;
+  }
 
   @Input()
   set employee(val: Employee) {
-    console.log(this._employee);
-    console.log('Previous: ' + (this._employee ? this._employee.name : 'NULL'));
-    console.log('Current: ' + val.name)
+    
+    console.log('employeeID changed from ' + JSON.stringify(this._employee) + ' to ' + JSON.stringify(val));
     this._employee = val;
   }
   get employee(): Employee {
@@ -28,6 +38,8 @@ export class DisplayEmployeeComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  
 
 
 }

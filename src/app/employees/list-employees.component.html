@@ -3,5 +3,5 @@
 </div> -->
 
 <button (click)="nextEmployee()" class="btn btn-primary" style="margin-bottom: 10px;">Next Employee (arrayIndex: {{arrayIndex}})</button>
-<app-display-employee [employee]="employeeToDisplay"></app-display-employee>
+<app-display-employee [employee]="employeeToDisplay" [employeeId]="employeeToDisplay.id"></app-display-employee>
 
