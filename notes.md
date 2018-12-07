@@ -74,4 +74,9 @@ ngSwitchCase
 ngSwitchDefault
 
 #Input() decorator
-@Input() decorator to pass data from parent to chilf
+@Input() decorator to pass data from parent to child
+
+#Input property chang detection
+Property setter / ngOnChanges life cycle hook
+OnChanges import from @angular/core 
+SimpleChanges import from @angular/core
