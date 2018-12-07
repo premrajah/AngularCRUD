@@ -1,5 +1,5 @@
 import { Validator, NG_VALIDATORS, AbstractControl } from "@angular/forms";
-import { Directive, Input } from "@angular/core";
+import { Directive } from "@angular/core";
 
 @Directive({
   selector: '[appConfirmEqualValidator]',
@@ -11,14 +11,12 @@ import { Directive, Input } from "@angular/core";
 })
 export class ConfirmEqualValidatorDirective implements Validator {
 
-  // passes the value of password field to this directive (or any other)
-  @Input() appConfirmEqualValidator: string;
+  validate(passwordGroup: AbstractControl): { [key: string]: any } | null {
 
-  validate(control: AbstractControl): { [key: string]: any } | null {
+    const passwordField = passwordGroup.get('password');
+    const confirmPasswordField = passwordGroup.get('confirmPassword');
 
-    const controlToCompare = control.parent.get(this.appConfirmEqualValidator);
-
-    if (controlToCompare && controlToCompare.value !== control.value) {
+    if (passwordField && confirmPasswordField && passwordField.value !== confirmPasswordField.value) {
       return { 'notEqual': true }
     }
 

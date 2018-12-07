@@ -54,6 +54,7 @@ e.g. *nfIf="email.errors?.required"
 id the value is null or object use ngValue 
 
 #ngModelGroup directive
+can only be used as a child of ngForm directive
 
 conditional class / group binding
 
