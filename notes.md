@@ -80,3 +80,5 @@ ngSwitchDefault
 Property setter / ngOnChanges life cycle hook
 OnChanges import from @angular/core 
 SimpleChanges import from @angular/core
+
+#@Output property (EventEmmiter)
