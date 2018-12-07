@@ -62,3 +62,8 @@ conditional class / group binding
 function to trigger a form controls validation
 e.g:  (change)="confirmPassword.control.updateValueAndValidity()" triggered after loosing focus
       (input)="confirmPassword.control.updateValueAndValidity()" triggered while typing
+
+# Angular service
+the service always need to have the @Injectable() decorator above the class
+import from 
+#import { Injectable } from "@angular/core";
