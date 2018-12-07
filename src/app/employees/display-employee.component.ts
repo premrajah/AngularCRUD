@@ -10,29 +10,7 @@ import { Employee } from '../models/employee.model';
 })
 export class DisplayEmployeeComponent implements OnInit {
 
-  // backing field for Input property
-  private _employee: Employee;
-  private _employeeId: number;
-
-  
-
-  @Input() 
-  set employeeId(val : number) {
-    this._employeeId = val;
-  }
-  get employeeId() {
-    return this._employeeId;
-  }
-
-  @Input()
-  set employee(val: Employee) {
-    
-    console.log('employeeID changed from ' + JSON.stringify(this._employee) + ' to ' + JSON.stringify(val));
-    this._employee = val;
-  }
-  get employee(): Employee {
-    return this._employee;
-  }
+  @Input() employee: Employee;
 
   constructor() { }
 
