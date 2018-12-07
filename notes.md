@@ -72,3 +72,6 @@ import from
 ngSwitch
 ngSwitchCase
 ngSwitchDefault
+
+#Input() decorator
+@Input() decorator to pass data from parent to chilf
