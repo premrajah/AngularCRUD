@@ -124,18 +124,16 @@
 
       <!-- password group -->
       <!-- <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup" [class.has-error]="passwordGroup.errors?.notEqual && !confirmPassword.errors?.required"
-        appConfirmEqualValidator> -->
+        appConfirmEqualValidator>
 
-        <!-- password -->
-        <!-- <div class="form-group" [class.has-error]="password.touched && password.invalid">
+        <div class="form-group" [class.has-error]="password.touched && password.invalid">
           <label for="password" class="control-label">Password</label>
           <input type="password" id="password" name="password" [(ngModel)]="employee.password" #password="ngModel"
             required class="form-control">
           <span class="help-block" *ngIf="password.touched && password.invalid">Password is required</span>
-        </div> -->
+        </div>
 
-        <!-- confirm password -->
-        <!-- <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
+        <div class="form-group" [class.has-error]="confirmPassword.touched && confirmPassword.invalid">
           <label for="confirmPassword" class="control-label">Confirm Password</label>
           <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="employee.confirmPassword"
             #confirmPassword="ngModel" required class="form-control">
