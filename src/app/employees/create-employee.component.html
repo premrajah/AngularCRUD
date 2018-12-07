@@ -122,11 +122,11 @@
       </div>
 
       <!-- password -->
-      <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup">
+      <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup" [class.has-error]="confirmPassword.touched && confirmPassword.invalid && !confirmPassword.errors?.required">
         <div class="form-group" [class.has-error]="password.touched && password.invalid">
           <label for="password" class="control-label">Password</label>
-          <input type="password" id="password" name="password" [(ngModel)]="employee.password" #password="ngModel"
-            required class="form-control">
+          <input type="password" (input)="confirmPassword.control.updateValueAndValidity()" id="password" name="password" [(ngModel)]="employee.password" #password="ngModel"
+            required class="form-control" >
           <span class="help-block" *ngIf="password.touched && password.invalid">Password is required</span>
         </div>
 
@@ -137,8 +137,7 @@
             [(ngModel)]="employee.confirmPassword" #confirmPassword="ngModel" required class="form-control">
 
           <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.required">Confirm Password
-            is
-            required</span>
+            is required</span>
 
           <span class="help-block" *ngIf="confirmPassword.touched && confirmPassword.errors?.notEqual && !confirmPassword.errors?.required">Password
             and

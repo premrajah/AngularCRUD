@@ -56,3 +56,8 @@ id the value is null or object use ngValue
 #ngModelGroup directive
 
 conditional class / group binding
+
+# updateValueAndValidity() 
+function to trigger a form controls validation
+e.g:  (change)="confirmPassword.control.updateValueAndValidity()" triggered after loosing focus
+      (input)="confirmPassword.control.updateValueAndValidity()" triggered while typing
